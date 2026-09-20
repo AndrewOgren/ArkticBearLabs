@@ -1,0 +1,247 @@
+/* Arktic Bear Labs — landing page styles */
+
+:root {
+  --bg:            #f7f9fb;
+  --bg-alt:        #eef3f8;
+  --surface:       #ffffff;
+  --border:        #dde5ee;
+  --text:          #101b26;
+  --text-muted:    #53657a;
+  --accent:        #1f7a8c;
+  --accent-strong: #145d6c;
+  --accent-soft:   #d8ecf1;
+  --on-accent:     #ffffff;
+  --shadow:        0 1px 2px rgba(16, 27, 38, .06), 0 8px 24px rgba(16, 27, 38, .06);
+  --radius:        14px;
+  --wrap:          1080px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:            #0b1219;
+    --bg-alt:        #0f1822;
+    --surface:       #131e29;
+    --border:        #223241;
+    --text:          #e8eef5;
+    --text-muted:    #9aacbe;
+    --accent:        #5fc6da;
+    --accent-strong: #8fdcea;
+    --accent-soft:   #16303a;
+    --on-accent:     #06141a;
+    --shadow:        0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
+               Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; }
+
+a { color: var(--accent); }
+
+h1, h2, h3 {
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 .5em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 16px;
+  z-index: 10;
+}
+.skip-link:focus { left: 12px; top: 12px; }
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 14px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.brand-mark { width: 32px; height: 32px; color: var(--accent); flex: none; }
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+  font-size: .95rem;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--text); }
+
+.nav-cta {
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 16px;
+}
+.nav-cta:hover { border-color: var(--accent); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(64px, 12vw, 128px);
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 760px; }
+
+.hero-glow {
+  position: absolute;
+  inset: -40% 40% auto -20%;
+  height: 700px;
+  background: radial-gradient(circle at 30% 40%,
+              color-mix(in srgb, var(--accent) 22%, transparent), transparent 62%);
+  pointer-events: none;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .74rem;
+  font-weight: 650;
+  color: var(--accent);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  margin-bottom: .45em;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  color: var(--text-muted);
+  max-width: 62ch;
+  margin: 0 0 32px;
+}
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .98rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform .12s ease, background-color .12s ease, border-color .12s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-strong); }
+
+.btn-ghost { border-color: var(--border); color: var(--text); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- sections ---------- */
+
+.section { padding-block: clamp(56px, 9vw, 96px); }
+
+.section-title {
+  font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+  font-weight: 680;
+}
+
+.section-lede {
+  color: var(--text-muted);
+  max-width: 58ch;
+  margin: 0 0 40px;
+}
+
+/* about */
+
+.about p { color: var(--text-muted); max-width: 60ch; }
+
+/* contact */
+
+.section-contact {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.contact-inner .section-lede { margin-inline: auto; }
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  font-size: .9rem;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding-block: 28px;
+}
+.footer-inner p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn:hover { transform: none; }
+}
