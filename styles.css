@@ -224,6 +224,34 @@ h1, h2, h3 {
 }
 .contact-inner .section-lede { margin-inline: auto; }
 
+/* ---------- app pages (support, privacy) ---------- */
+
+.doc { max-width: 760px; }
+
+.doc h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; }
+
+.doc-meta { color: var(--text-muted); margin: -0.3em 0 24px; }
+
+.doc-heading { font-size: 1.3rem; font-weight: 650; margin-top: 40px; }
+
+.doc p, .doc li { color: var(--text-muted); }
+.doc strong { color: var(--text); }
+.doc ul { padding-left: 22px; }
+
+.doc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  margin: 14px 0;
+}
+.doc-card h2, .doc-card h3 { color: var(--text); font-size: 1.05rem; margin-bottom: .35em; }
+.doc-card p { margin: 0; }
+
+.doc-contact { margin-top: 28px; }
+.doc-contact p { margin-bottom: 16px; }
+
 /* ---------- footer ---------- */
 
 .site-footer {
